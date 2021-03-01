@@ -6,6 +6,14 @@ spec:
   hosts:
     - reviews
   http:
+  - match:
+    - headers:
+      end-user:
+        exact: jason
+    route:
+    - destination:
+      host: reviews
+      subset: v3
   - route:
     - destination:
         host: reviews
@@ -19,3 +27,4 @@ spec:
         host: reviews
         subset: v3
       weight: 10
+      
