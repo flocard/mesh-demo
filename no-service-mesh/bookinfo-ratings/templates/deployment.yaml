@@ -1,25 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: details-v1
+  name: ratings-v1
   labels:
-    app: details
+    app: ratings
     version: v1
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: details
+      app: ratings
       version: v1
   template:
     metadata:
       labels:
-        app: details
+        app: ratings
         version: v1
     spec:
+      serviceAccountName: bookinfo-ratings
       containers:
-      - name: details
-        image: docker.io/istio/examples-bookinfo-details-v1:1.16.2
+      - name: ratings
+        image: docker.io/istio/examples-bookinfo-ratings-v1:1.16.2
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9080
