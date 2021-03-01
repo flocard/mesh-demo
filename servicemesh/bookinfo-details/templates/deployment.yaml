@@ -8,13 +8,13 @@ metadata:
 spec:
   replicas: 1
   selector:
-    annotations:
-      sidecar.istio.io/inject: "true"
     matchLabels:
       app: details
       version: v1
   template:
     metadata:
+      annotations:
+        sidecar.istio.io/inject: "true"
       labels:
         app: details
         version: v1

@@ -60,7 +60,6 @@ spec:
         app: reviews
         version: v2
     spec:
-      serviceAccountName: bookinfo-reviews
       containers:
       - name: reviews
         image: maistra/examples-bookinfo-reviews-v2:2.0.0
@@ -102,7 +101,6 @@ spec:
         app: reviews
         version: v3
     spec:
-      serviceAccountName: bookinfo-reviews
       containers:
       - name: reviews
         image: maistra/examples-bookinfo-reviews-v3:2.0.0
