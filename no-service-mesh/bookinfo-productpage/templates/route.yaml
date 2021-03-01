@@ -1,0 +1,20 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: productpage
+  labels:
+    app: productpage
+    app.kubernetes.io/instance: nomesh-productpage
+    service: productpage
+spec:
+  host: productpage-team--demo-dev.apps.cluster-ddca.ddca.sandbox1287.opentlc.com
+  to:
+    kind: Service
+    name: productpage
+    weight: 100
+  port:
+    targetPort: http
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: None
+  wildcardPolicy: None
