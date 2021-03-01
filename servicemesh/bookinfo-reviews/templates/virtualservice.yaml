@@ -12,19 +12,19 @@ spec:
           exact: jason
     route:
     - destination:
-      host: reviews
-      subset: v3
+        host: reviews
+        subset: v3
   - route:
     - destination:
         host: reviews
         subset: v1
-      weight: 80
+      weight: 33
     - destination:
         host: reviews
         subset: v2
-      weight: 10
+      weight: 33
     - destination:
         host: reviews
         subset: v3
-      weight: 10
-          
+      weight: 34
+
