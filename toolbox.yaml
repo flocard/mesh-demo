@@ -10,7 +10,7 @@ spec:
         - /bin/sh
         - '-c'
         - '--'
-      image: praqma/network-multitool
+      image: quay.io/wcaban/net-toolbox
       imagePullPolicy: Always
       name: toolbox
 
