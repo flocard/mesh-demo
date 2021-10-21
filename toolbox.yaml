@@ -40,4 +40,9 @@ spec:
           image: quay.io/wcaban/net-toolbox
           imagePullPolicy: Always
           name: toolbox
-        
+          env:
+            - name: MY_HOST_IP
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: status.hostIP
