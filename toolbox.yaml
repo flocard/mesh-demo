@@ -13,36 +13,3 @@ spec:
       image: quay.io/wcaban/net-toolbox
       imagePullPolicy: Always
       name: toolbox
-
----
-apiVersion: apps/v1
-kind: DaemonSet
-metadata:
-  name: toolboxnetwork  
-spec:
-  selector:
-    matchLabels:
-      app: toolboxnetwork
-  template:
-    metadata:
-      labels:
-        app: toolboxnetwork
-    spec:
-      nodeSelector:
-        node-role.kubernetes.io/worker: ''
-      containers:
-        - args:
-            - while true; do sleep 30; done;
-          command:
-            - /bin/sh
-            - '-c'
-            - '--'
-          image: quay.io/wcaban/net-toolbox
-          imagePullPolicy: Always
-          name: toolbox
-          env:
-            - name: MY_HOST_IP
-              valueFrom:
-                fieldRef:
-                  apiVersion: v1
-                  fieldPath: status.hostIP
